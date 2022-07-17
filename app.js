@@ -3,6 +3,7 @@
 
 //DOM Elements
 const search = document.getElementById('search')
+const errorElem = document.getElementById('error')
 const mainDiv = document.getElementById('main')
 const body = document.getElementById('body')
 const superHeroImage = document.getElementById('superheroImg')
@@ -17,11 +18,15 @@ const searchSuperHero = ()=> {
     fetch(`${apiUrl}search/${search.value}`)
         .then(response => response.json())
         .then(json => {
+            if(json.results == undefined){
+                errorElem.textContent = 'Make sure you spell correct'
+            }else{
             getSuperHeroName(json.results[0].name)
             getSuperHeroImage(json.results[0].image.url)
             getPowerStats(json.results[0].powerstats)
             // getSuperHeroBiography(json.results[0].biography)
             // getSuperHeroAppearnce(json.results[0].appearance)
+            }
         })
 }
 //Random super hero API function

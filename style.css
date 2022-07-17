@@ -18,6 +18,11 @@ body {
 .headingDiv {
     margin: 1rem;
 }
+#error{
+    color: rgb(191, 4, 4);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
 
 .heading {
     color: #fff;
