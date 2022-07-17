@@ -18,6 +18,7 @@ const searchSuperHero = ()=> {
     fetch(`${apiUrl}search/${search.value}`)
         .then(response => response.json())
         .then(json => {
+            errorElem.textContent = ''
             if(json.results == undefined){
                 errorElem.textContent = 'Make sure you spell correct'
             }else{
