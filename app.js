@@ -19,14 +19,14 @@ const searchSuperHero = ()=> {
         .then(response => response.json())
         .then(json => {
             errorElem.textContent = ''
-            if(json.results == undefined){
-                errorElem.textContent = 'Make sure you spell correct'
-            }else{
-            getSuperHeroName(json.results[0].name)
-            getSuperHeroImage(json.results[0].image.url)
-            getPowerStats(json.results[0].powerstats)
-            // getSuperHeroBiography(json.results[0].biography)
-            // getSuperHeroAppearnce(json.results[0].appearance)
+            if (json.results == undefined) {
+                errorElem.textContent = 'Something went wrong!'
+            } else {
+                getSuperHeroName(json.results[0].name)
+                getSuperHeroImage(json.results[0].image.url)
+                getPowerStats(json.results[0].powerstats)
+                // getSuperHeroBiography(json.results[0].biography)
+                // getSuperHeroAppearnce(json.results[0].appearance)
             }
         })
 }
@@ -36,7 +36,6 @@ const getRandomSuperHero = () => {
     fetch(`${apiUrl}${randomNum}`)
         .then(response => response.json())
         .then(json => {
-            console.log(json.appearance)
             getSuperHeroImage(json.image.url)
             getSuperHeroName(json.name)
             getPowerStats(json.powerstats)
